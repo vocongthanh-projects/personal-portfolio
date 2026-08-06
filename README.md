@@ -1,4 +1,4 @@
-# Thanh Vo — Personal Portfolio
+# Vo Cong Thanh — Personal Portfolio
 
 A static, recruiter-first engineering portfolio presenting two complementary disciplines: QA automation and authorized penetration testing.
 

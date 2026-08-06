@@ -1,4 +1,4 @@
-import { ArrowIcon, ExternalIcon } from "@/components/icons";
+import { ArrowIcon, ExternalIcon, GitHubIcon, HackTheBoxIcon, LinkedInIcon, TryHackMeIcon } from "@/components/icons";
 import { LanguageSwitch } from "@/components/language-switch";
 import { SectionHeading } from "@/components/section-heading";
 import * as english from "@/data/portfolio";
@@ -10,7 +10,7 @@ type PortfolioPageProps = {
 
 export function PortfolioPage({ locale }: PortfolioPageProps) {
   const content = locale === "vi" ? vietnamese : english;
-  const { capabilityGroups, caseStudies, credentials, experience, practiceSignals, principles, profile, projects, proofPoints, recognition, ui } = content;
+  const { credentials, experience, practiceSignals, profile, projects, proofPoints, ui } = content;
   const pageUrl = locale === "vi" ? "https://vocongthanh.com/vi/" : "https://vocongthanh.com/";
   const structuredData = {
     "@context": "https://schema.org",
@@ -19,7 +19,7 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
     jobTitle: profile.role,
     email: `mailto:${profile.email}`,
     url: pageUrl,
-    sameAs: [profile.linkedin, profile.github, profile.htb],
+    sameAs: [profile.linkedin, profile.github, profile.htb, profile.tryhackme],
     knowsAbout: ["QA automation", "Automation framework architecture", "API testing", "Web and mobile automation", "Authorized penetration testing", "Web and API security"],
   };
 
@@ -29,7 +29,7 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
       <a className="skip-link" href="#main-content">{ui.skipLink}</a>
       <header className="site-header">
         <div className="site-header-inner">
-          <a className="brand" href="#top" aria-label={ui.backToTopLabel}><span className="brand-mark" aria-hidden="true">TV</span><span className="brand-name">Thanh Vo</span></a>
+          <a className="brand" href="#top" aria-label={ui.backToTopLabel}><span className="brand-mark" aria-hidden="true">VCT</span><span className="brand-name">{profile.name}</span></a>
           <nav aria-label={ui.navLabel}>{ui.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</nav>
           <div className="header-actions">
             <LanguageSwitch href={ui.languageHref} label={ui.languageLabel} code={ui.languageCode} />
@@ -46,7 +46,7 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
             <p className="hero-role">{profile.role}</p>
             <p className="hero-summary">{ui.heroSummary}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">{ui.selectedWorkCta} <ArrowIcon /></a>
+              <a className="button button-primary" href="#projects">{ui.selectedWorkCta} <ArrowIcon /></a>
               <a className="button button-secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <ExternalIcon /></a>
             </div>
           </div>
@@ -67,80 +67,23 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
           <SectionHeading index="01" {...ui.sections.experience} />
           <div className="experience-list">
             {experience.map((item, index) => (
-              <article className="experience-item" key={`${item.company}-${item.period}`}>
+              <article className={`experience-item ${item.current ? "" : "is-compact"}`} key={`${item.company}-${item.period}`}>
                 <div className="experience-rail"><span>{String(index + 1).padStart(2, "0")}</span><i className={item.current ? "is-current" : ""} aria-hidden="true" /></div>
                 <div className="experience-identity"><p>{item.period}</p><h3>{item.company}</h3><strong>{item.role}</strong></div>
-                <div className="experience-detail"><p>{item.summary}</p><ul>{item.contributions.map((contribution) => <li key={contribution}>{contribution}</li>)}</ul><div className="tag-list">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+                <div className="experience-detail">
+                  <p>{item.summary}</p>
+                  {item.current ? <><ul>{item.contributions.map((contribution) => <li key={contribution}>{contribution}</li>)}</ul><div className="tag-list">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></> : null}
+                </div>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="section theme-light" id="work">
-          <SectionHeading index="02" {...ui.sections.work} />
-          <div className="case-list">
-            {caseStudies.map((study) => (
-              <article className={`case-card ${study.tone}`} key={study.index}>
-                <div className="case-meta"><span>{study.index}</span><span>{study.eyebrow}</span></div>
-                <div className="case-main"><h3>{study.title}</h3><p>{study.summary}</p></div>
-                <ul className="case-contribution">{study.contribution.map((item) => <li key={item}>{item}</li>)}</ul>
-                <div className="tag-list" aria-label={ui.technologiesLabel}>{study.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section" id="capabilities">
-          <SectionHeading index="03" {...ui.sections.capabilities} />
-          <div className="capability-grid">
-            {capabilityGroups.map((group) => (
-              <article className={`capability-card ${group.tone}`} key={group.title}>
-                <span className="capability-number">{group.number}</span><h3>{group.title}</h3><p>{group.description}</p>
-                <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section practice-section theme-light" id="practice">
-          <SectionHeading index="04" {...ui.sections.practice} />
-          <div className="practice-layout">
-            <div className="practice-grid">
-              {practiceSignals.map((signal) => <article key={signal.title}><strong>{signal.value}</strong><h3>{signal.title}</h3><p>{signal.detail}</p></article>)}
-            </div>
-            <aside className="candidate-card">
-              <div className="candidate-status"><span aria-hidden="true" /> {ui.candidateStatus}</div>
-              <p className="candidate-label">{ui.candidateLabel}</p><h3>{ui.candidateTitle}</h3>
-              <p>{ui.candidateDescription}</p>
-              <div className="candidate-topics">{ui.candidateTopics.map((topic) => <span key={topic}>{topic}</span>)}</div>
-            </aside>
-          </div>
-        </section>
-
-        <section className="section theme-light credentials-section" id="credentials">
-          <SectionHeading index="05" {...ui.sections.credentials} />
-          <div className="credential-layout">
-            <div className="credential-list">
-              {credentials.map((credential) => (
-                <article className={`credential-card ${credential.tone}`} key={credential.title}>
-                  <div className="credential-meta"><span>{credential.type}</span><strong>{credential.status}</strong></div>
-                  <h3>{credential.title}</h3><p className="credential-issuer">{credential.issuer}</p><p>{credential.description}</p>
-                  {credential.href ? <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">{ui.publicProfileCta} <ExternalIcon /></a> : null}
-                </article>
-              ))}
-            </div>
-            <aside className="recognition-card">
-              <div className="recognition-mark" aria-hidden="true">★</div>
-              <p>{recognition.type}</p><h3>{recognition.title}</h3><strong>{recognition.period}</strong><span>{recognition.issuer}</span><small>{recognition.description}</small>
-            </aside>
           </div>
         </section>
 
         <section className="section" id="projects">
-          <SectionHeading index="06" {...ui.sections.projects} />
+          <SectionHeading index="02" {...ui.sections.projects} />
           <div className="project-grid">
             {projects.map((project, index) => (
-              <article className="project-card" key={project.title}>
+              <article className={`project-card ${project.tone}`} key={project.title}>
                 <div className="project-topline"><span>{String(index + 1).padStart(2, "0")}</span><span>{project.category}</span></div>
                 <h3>{project.title}</h3><p>{project.description}</p>
                 <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
@@ -150,21 +93,42 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
           </div>
         </section>
 
-        <section className="section principles-section theme-light">
-          <SectionHeading index="07" {...ui.sections.principles} />
-          <ol className="principles-list">{principles.map((principle, index) => <li key={principle}><span>{String(index + 1).padStart(2, "0")}</span><strong>{principle}</strong></li>)}</ol>
+        <section className="section practice-section theme-light" id="practice">
+          <SectionHeading index="03" {...ui.sections.practice} />
+          <div className="practice-grid">
+            {practiceSignals.map((signal) => <article key={signal.title}><strong>{signal.value}</strong><h3>{signal.title}</h3><p>{signal.detail}</p></article>)}
+          </div>
+          <a className="practice-profile-link" href={profile.tryhackme} target="_blank" rel="noreferrer">{ui.tryHackMeProfileCta} <ExternalIcon /></a>
+        </section>
+
+        <section className="section theme-light credentials-section" id="credentials">
+          <SectionHeading index="04" {...ui.sections.credentials} />
+          <div className="credential-layout">
+            <div className="credential-list">
+              {credentials.map((credential) => (
+                <article className={`credential-card ${credential.tone}`} key={credential.title}>
+                  <div className="credential-meta"><span>{credential.type}</span><strong>{credential.status}</strong></div>
+                  <h3>{credential.title}</h3><p className="credential-issuer">{credential.issuer}</p><p className="credential-description">{credential.description}</p>
+                  {credential.issuedDate ? <p className="credential-issued"><span>{ui.issuedDateLabel}</span>{credential.issuedDate}</p> : null}
+                  {credential.href ? <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">{ui.publicProfileCta} <ExternalIcon /></a> : null}
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section className="contact-section" id="contact">
-          <p className="section-kicker"><span>08</span><span>{ui.contactEyebrow}</span></p>
+          <p className="section-kicker"><span>05</span><span>{ui.contactEyebrow}</span></p>
           <h2>{ui.contactTitle}</h2>
           <p>{ui.contactDescription}</p>
+          <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email}</a>
           <div className="contact-actions">
             <a className="button button-primary" href={`mailto:${profile.email}`}>{ui.conversationCta} <ArrowIcon /></a>
-            <div className="contact-links">
-              <a className="text-link" href={profile.linkedin} target="_blank" rel="noreferrer">{profile.linkedinLabel} <ExternalIcon /></a>
-              <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">{profile.githubLabel} <ExternalIcon /></a>
-              <a className="text-link" href={profile.htb} target="_blank" rel="noreferrer">{profile.htbLabel} <ExternalIcon /></a>
+            <div className="social-links" aria-label={ui.socialLinksLabel}>
+              <a className="social-github" href={profile.github} target="_blank" rel="noreferrer" aria-label={profile.githubLabel} title={profile.githubLabel}><GitHubIcon /></a>
+              <a className="social-linkedin" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label={profile.linkedinLabel} title={profile.linkedinLabel}><LinkedInIcon /></a>
+              <a className="social-htb" href={profile.htb} target="_blank" rel="noreferrer" aria-label={profile.htbLabel} title={profile.htbLabel}><HackTheBoxIcon /></a>
+              <a className="social-tryhackme" href={profile.tryhackme} target="_blank" rel="noreferrer" aria-label={profile.tryhackmeLabel} title={profile.tryhackmeLabel}><TryHackMeIcon /></a>
             </div>
           </div>
         </section>

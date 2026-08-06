@@ -1,13 +1,15 @@
 export const profile = {
-  name: "Thanh Vo",
+  name: "Vo Cong Thanh",
   role: "QA Automation Engineer & Penetration Tester",
   email: "vocongthanh21022000@gmail.com",
   github: "https://github.com/vocongthanh247",
   githubLabel: "github.com/vocongthanh247",
-  linkedin: "https://www.linkedin.com/in/thanh-vo-56785b2b0/",
-  linkedinLabel: "linkedin.com/in/thanh-vo-56785b2b0",
+  linkedin: "https://www.linkedin.com/in/vocongthanh-qa/",
+  linkedinLabel: "linkedin.com/in/vocongthanh-qa",
   htb: "https://profile.hackthebox.com/profile/019f2344-16b3-700f-be3a-9af139dfee51",
   htbLabel: "Hack The Box profile",
+  tryhackme: "https://tryhackme.com/p/vocongthanh21022",
+  tryhackmeLabel: "TryHackMe profile",
   location: "Vietnam",
 } as const;
 
@@ -38,88 +40,7 @@ export const experience = [
     period: "March 2024 — May 2024",
     role: "Manual QA Tester",
     summary: "Built a practical foundation in product quality through hands-on manual testing and defect communication.",
-    contributions: [
-      "Executed functional, regression, and exploratory testing against product behavior and requirements.",
-      "Documented reproducible defects with clear steps, evidence, and expected-versus-actual results.",
-      "Collaborated with the delivery team to validate fixes and support release confidence.",
-    ],
-    tags: ["Manual Testing", "Regression Testing", "Exploratory Testing", "Defect Reporting"],
     current: false,
-  },
-] as const;
-
-export const caseStudies = [
-  {
-    index: "01",
-    eyebrow: "Quality architecture",
-    title: "Reusable automation across three delivery surfaces",
-    summary: "Designed domain-neutral foundations for API, browser, Android, and iOS testing without embedding product workflows in framework code.",
-    contribution: [
-      "Configuration-driven execution and environment validation",
-      "Dynamic locator strategies with clear diagnostic failures",
-      "Isolated parallel runs with evidence and report generation",
-    ],
-    tags: ["REST Assured", "Playwright", "Appium", "Java", "CI/CD"],
-    tone: "quality",
-  },
-  {
-    index: "02",
-    eyebrow: "Authorized security testing",
-    title: "Enterprise web, API, and mobile assessments",
-    summary: "Mapped application attack surfaces, tested authorization and business logic, built focused validation scripts, and documented reproducible evidence for engineering teams.",
-    contribution: [
-      "Authentication, JWT, SSO, IDOR/BOLA, RBAC, and workflow testing",
-      "Client-side, API, mobile, MQTT, and infrastructure analysis",
-      "Technical reporting with impact, evidence, and remediation guidance",
-    ],
-    tags: ["Burp Suite", "OWASP", "Python", "Nmap", "Mobile"],
-    tone: "security",
-  },
-  {
-    index: "03",
-    eyebrow: "Specialized quality engineering",
-    title: "Geospatial and high-volume data validation",
-    summary: "Automated route, coordinate, GPS, GeoJSON, map-rendering, and bulk dataset checks across APIs, browsers, and reporting workflows.",
-    contribution: [
-      "Cross-system comparison of location and route data",
-      "Browser rendering and network-response verification",
-      "Excel-driven processing with traceable result evidence",
-    ],
-    tags: ["GeoJSON", "JTS", "Playwright", "Apache POI", "Maps"],
-    tone: "quality",
-  },
-] as const;
-
-export const capabilityGroups = [
-  {
-    number: "01",
-    title: "Quality Engineering",
-    description: "Reliable automation systems that stay reusable when products, environments, and teams change.",
-    items: [
-      "Automation framework architecture",
-      "API contract and workflow testing",
-      "Playwright browser automation",
-      "Appium for Android and iOS",
-      "Dynamic locator and component design",
-      "Parallel CI and failure diagnostics",
-      "Data and geospatial validation",
-    ],
-    tone: "quality",
-  },
-  {
-    number: "02",
-    title: "Offensive Security",
-    description: "Authorized, evidence-led security testing focused on exploitable behavior and useful remediation.",
-    items: [
-      "Web and API penetration testing",
-      "Mobile application assessment",
-      "Authentication and authorization",
-      "Business-logic vulnerability testing",
-      "Network enumeration and traffic analysis",
-      "Source and client-side analysis",
-      "Finding validation and reporting",
-    ],
-    tone: "security",
   },
 ] as const;
 
@@ -129,6 +50,7 @@ export const projects = [
     category: "Quality Engineering",
     description: "A reusable REST API automation foundation with secure configuration, request specifications, authentication lifecycle, validation, and reporting.",
     tags: ["Java", "REST Assured", "TestNG"],
+    tone: "quality",
     href: "https://github.com/vocongthanh247/api-framework",
   },
   {
@@ -136,6 +58,7 @@ export const projects = [
     category: "Quality Engineering",
     description: "A domain-neutral browser automation framework with logical locators, component scope, isolated contexts, and failure evidence.",
     tags: ["Java", "Playwright", "Cucumber"],
+    tone: "quality",
     href: "https://github.com/vocongthanh247/playwright-framework",
   },
   {
@@ -143,29 +66,32 @@ export const projects = [
     category: "Quality Engineering",
     description: "A cross-platform mobile test architecture with Android and iOS adapters, dynamic selectors, device configuration, and lifecycle control.",
     tags: ["Java", "Appium", "Android / iOS"],
+    tone: "quality",
     href: "https://github.com/vocongthanh247/appium-framework",
   },
   {
     title: "Burp Safe Agent",
     category: "Security Engineering",
-    description: "Safety-aware automation for authorized Burp workflows with explicit scope gates, mutation controls, audit trails, and redaction.",
+    description: "A human-in-the-loop Burp Community assistant with dual-layer scope gates, mutation approval, secret redaction, audit logging, and mandatory manual verification.",
     tags: ["Python", "Burp Suite", "MCP"],
+    tone: "security",
     href: "https://github.com/vocongthanh247/burp-safe-agent",
   },
   {
     title: "VulnRadar",
     category: "Security Engineering",
-    description: "A local vulnerability intelligence workflow combining NVD, CISA KEV, CVSS, and EPSS signals for practical prioritization.",
+    description: "A local-first CLI that deduplicates NVD and CISA KEV records, applies explainable KEV/CVSS/EPSS scoring, and produces searchable SQLite digests.",
     tags: ["Python", "SQLite", "CISA KEV"],
+    tone: "security",
     href: "https://github.com/vocongthanh247/vulnradar",
   },
 ] as const;
 
 export const practiceSignals = [
-  { value: "55", title: "Structured topic notes", detail: "Across hands-on TryHackMe learning paths" },
-  { value: "26", title: "Documented exercises", detail: "Custom tooling, Juice Shop, and privilege escalation" },
-  { value: "08", title: "HTB challenges", detail: "Web, reversing, hardware, and satellite categories" },
-  { value: "54", title: "Network documents", detail: "From packet flow and routing to TLS and LAN attacks" },
+  { value: "55", title: "Structured topic notes", detail: "Substantive notes across six TryHackMe learning paths" },
+  { value: "28", title: "Learning-lab scripts", detail: "Python artifacts for WebGoat and custom TryHackMe labs" },
+  { value: "08", title: "HTB challenge write-ups", detail: "Five web, one reversing, one hardware, and one satellite" },
+  { value: "18", title: "Substantive network notes", detail: "Packet flow, routing, TLS, hardening, and LAN attacks" },
 ] as const;
 
 export const credentials = [
@@ -175,6 +101,7 @@ export const credentials = [
     issuer: "FPT Software Academy",
     status: "Completed",
     description: "Foundational training in software testing, test design, execution, defect reporting, and quality assurance practices.",
+    issuedDate: "15 January 2024",
     tone: "quality",
     href: null,
   },
@@ -184,37 +111,23 @@ export const credentials = [
     issuer: "Hack The Box Academy",
     status: "In progress",
     description: "Preparing for the Certified Penetration Testing Specialist exam through structured study, labs, methodology, and authorized assessment work.",
+    issuedDate: null,
     tone: "security",
     href: profile.htb,
   },
 ] as const;
 
-export const recognition = {
-  type: "Internal recognition",
-  title: "Outstanding Employee",
-  period: "First Half of 2026",
-  issuer: "GTEL OTS",
-  description: "Recognized internally for outstanding contribution during the first half of 2026.",
-} as const;
-
-export const principles = [
-  "Make failures explain themselves.",
-  "Keep framework code independent from product code.",
-  "Use automation to scale judgment, not replace it.",
-  "Treat scope, evidence, and reporting as part of security testing.",
-] as const;
-
 export const ui = {
+  socialLinksLabel: "Social profiles",
   skipLink: "Skip to content",
   navLabel: "Primary navigation",
   navigation: [
     { label: "Experience", href: "#experience" },
-    { label: "Work", href: "#work" },
-    { label: "Credentials", href: "#credentials" },
     { label: "Projects", href: "#projects" },
+    { label: "Credentials", href: "#credentials" },
   ],
   contactCta: "Let's talk",
-  backToTopLabel: "Thanh Vo, back to top",
+  backToTopLabel: "Vo Cong Thanh, back to top",
   languageLabel: "Switch to Vietnamese",
   languageHref: "/vi/",
   languageCode: "VI",
@@ -223,30 +136,23 @@ export const ui = {
   heroTitleBridge: "tested with an ",
   heroTitleAccent: "offensive mindset.",
   heroSummary: "I build reliable automation systems and perform authorized security testing across web, API, and mobile applications.",
-  selectedWorkCta: "View selected work",
+  selectedWorkCta: "View public projects",
   focusLabel: "Engineering focus",
   qualityFocus: "Quality Engineering",
   qualityFocusDetail: "Architecture · Automation · Evidence",
   sharedContext: "shared context",
   securityFocus: "Offensive Security",
   securityFocusDetail: "Discovery · Validation · Reporting",
-  focusNote: "One engineering mindset: understand the system, test its assumptions, and make the result actionable.",
+  focusNote: "Across web, API, Android, and iOS, I build repeatable checks, probe authorization and business logic, and report reproducible evidence.",
   proofLabel: "Verified portfolio facts",
   sections: {
     experience: { eyebrow: "Experience", title: "From product testing to quality and security engineering.", description: "A concise career timeline focused on responsibilities, engineering contribution, and progression." },
-    work: { eyebrow: "Selected work", title: "Evidence before adjectives.", description: "A focused view of the systems, assessments, and specialized workflows that best represent how I work." },
-    capabilities: { eyebrow: "Capabilities", title: "Two disciplines. One practical standard.", description: "Automation verifies expected behavior at scale. Penetration testing examines what happens when the system is used in unexpected ways." },
     practice: { eyebrow: "Hands-on practice", title: "Learning that leaves evidence.", description: "Structured notes, repeatable labs, custom utilities, and engagement work support an ongoing HTB CPTS preparation path." },
-    credentials: { eyebrow: "Credentials & recognition", title: "Progress, backed by practice.", description: "Formal training, an active security certification path, and professional recognition that support the work shown above." },
+    credentials: { eyebrow: "Credentials", title: "Progress, backed by practice.", description: "Formal training and an active security certification path that support the work shown above." },
     projects: { eyebrow: "Open source", title: "Public projects, built to be inspected.", description: "Five focused repositories demonstrate framework design, testability, safety controls, and technical documentation." },
-    principles: { eyebrow: "Working principles", title: "What the work should do." },
   },
-  technologiesLabel: "Technologies",
-  candidateStatus: "In progress",
-  candidateLabel: "Certification journey",
-  candidateTitle: "HTB CPTS Candidate",
-  candidateDescription: "Preparing for the Certified Penetration Testing Specialist exam through structured study, hands-on labs, methodology development, and authorized assessment work.",
-  candidateTopics: ["Recon & enumeration", "Web & API exploitation", "Network fundamentals", "Privilege escalation", "Reporting"],
+  tryHackMeProfileCta: "View TryHackMe profile",
+  issuedDateLabel: "Issued",
   publicProfileCta: "View public profile",
   repositoryCta: "View repository",
   repositoryLabelPrefix: "View",
@@ -254,7 +160,7 @@ export const ui = {
   contactEyebrow: "Contact",
   contactTitle: "Building quality—or testing its limits?",
   contactDescription: "I am always interested in practical engineering conversations around automation architecture, application security, and the space where they meet.",
-  conversationCta: "Start a conversation",
+  conversationCta: "Email me",
   footerFocus: "QA Automation · Penetration Testing",
   backToTop: "Back to top ↑",
 } as const;

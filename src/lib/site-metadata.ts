@@ -6,20 +6,20 @@ const image = { url: "/og.svg", width: 1200, height: 630 };
 export function createSiteMetadata(locale: "en" | "vi"): Metadata {
   const isVietnamese = locale === "vi";
   const title = isVietnamese
-    ? "Thanh Vo — Kỹ sư QA Automation & Chuyên viên kiểm thử xâm nhập"
-    : "Thanh Vo — QA Automation Engineer & Penetration Tester";
+    ? "Võ Công Thành — Kỹ sư QA Automation & Chuyên viên kiểm thử xâm nhập"
+    : "Vo Cong Thanh — QA Automation Engineer & Penetration Tester";
   const description = isVietnamese
-    ? "Portfolio của Thanh Vo về kiến trúc automation framework và kiểm thử xâm nhập được ủy quyền trên hệ thống web, API và mobile."
-    : "Portfolio of Thanh Vo: automation framework architecture and authorized penetration testing across web, API, and mobile systems.";
+    ? "Portfolio của Võ Công Thành về kiến trúc automation framework và kiểm thử xâm nhập được ủy quyền trên hệ thống web, API và mobile."
+    : "Portfolio of Vo Cong Thanh: automation framework architecture and authorized penetration testing across web, API, and mobile systems.";
   const canonical = isVietnamese ? "/vi/" : "/";
 
   return {
     metadataBase: new URL(siteUrl),
     title,
     description,
-    applicationName: "Thanh Vo Portfolio",
-    authors: [{ name: "Thanh Vo" }],
-    creator: "Thanh Vo",
+    applicationName: locale === "vi" ? "Portfolio Võ Công Thành" : "Vo Cong Thanh Portfolio",
+    authors: [{ name: locale === "vi" ? "Võ Công Thành" : "Vo Cong Thanh" }],
+    creator: locale === "vi" ? "Võ Công Thành" : "Vo Cong Thanh",
     keywords: ["QA Automation Engineer", "Penetration Tester", "Playwright", "Appium", "API Testing", "Web Security", "Mobile Security"],
     alternates: {
       canonical,
