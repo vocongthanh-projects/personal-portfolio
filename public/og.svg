@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0f14"/>
+  <g stroke="#18212a"><path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/><path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/></g>
+  <text x="90" y="100" fill="#57d8ce" font-family="monospace" font-size="22" letter-spacing="3">THANH VO</text>
+  <text x="90" y="245" fill="#edf2f5" font-family="Arial, sans-serif" font-size="68" font-weight="600">QA Automation Engineer</text>
+  <text x="90" y="330" fill="#9ba8b3" font-family="Georgia, serif" font-size="68" font-style="italic">&amp; Penetration Tester</text>
+  <line x1="90" y1="412" x2="1110" y2="412" stroke="#27313b"/>
+  <circle cx="100" cy="491" r="7" fill="#57d8ce"/>
+  <text x="128" y="500" fill="#9ba8b3" font-family="monospace" font-size="20">WEB · API · MOBILE · SECURITY</text>
+</svg>
