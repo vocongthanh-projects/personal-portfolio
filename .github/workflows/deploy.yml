@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://vocongthanh.com
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: out
 
@@ -44,6 +44,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # GitHub Pages can take longer while a custom-domain certificate is provisioning.
-          timeout: 1200000
