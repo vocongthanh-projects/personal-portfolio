@@ -1,63 +1,70 @@
 import { ArrowIcon, ExternalIcon } from "@/components/icons";
+import { LanguageSwitch } from "@/components/language-switch";
 import { SectionHeading } from "@/components/section-heading";
-import { capabilityGroups, caseStudies, credentials, experience, practiceSignals, principles, profile, projects, proofPoints, recognition } from "@/data/portfolio";
+import * as english from "@/data/portfolio";
+import * as vietnamese from "@/data/portfolio.vi";
 
-export default function Home() {
+type PortfolioPageProps = {
+  locale: "en" | "vi";
+};
+
+export function PortfolioPage({ locale }: PortfolioPageProps) {
+  const content = locale === "vi" ? vietnamese : english;
+  const { capabilityGroups, caseStudies, credentials, experience, practiceSignals, principles, profile, projects, proofPoints, recognition, ui } = content;
+  const pageUrl = locale === "vi" ? "https://vocongthanh.com/vi/" : "https://vocongthanh.com/";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name,
     jobTitle: profile.role,
     email: `mailto:${profile.email}`,
-    url: "https://vocongthanh.com",
+    url: pageUrl,
     sameAs: [profile.linkedin, profile.github, profile.htb],
-    knowsAbout: [
-      "QA automation",
-      "Automation framework architecture",
-      "API testing",
-      "Web and mobile automation",
-      "Authorized penetration testing",
-      "Web and API security",
-    ],
+    knowsAbout: ["QA automation", "Automation framework architecture", "API testing", "Web and mobile automation", "Authorized penetration testing", "Web and API security"],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <a className="skip-link" href="#main-content">Skip to content</a>
+      <a className="skip-link" href="#main-content">{ui.skipLink}</a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Thanh Vo, back to top"><span className="brand-mark" aria-hidden="true">TV</span><span className="brand-name">Thanh Vo</span></a>
-        <nav aria-label="Primary navigation"><a href="#experience">Experience</a><a href="#work">Work</a><a href="#credentials">Credentials</a><a href="#projects">Projects</a></nav>
-        <a className="header-contact" href={`mailto:${profile.email}`}>Let&apos;s talk</a>
+        <div className="site-header-inner">
+          <a className="brand" href="#top" aria-label={ui.backToTopLabel}><span className="brand-mark" aria-hidden="true">TV</span><span className="brand-name">Thanh Vo</span></a>
+          <nav aria-label={ui.navLabel}>{ui.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</nav>
+          <div className="header-actions">
+            <LanguageSwitch href={ui.languageHref} label={ui.languageLabel} code={ui.languageCode} />
+            <a className="header-contact" href={`mailto:${profile.email}`}>{ui.contactCta}</a>
+          </div>
+        </div>
       </header>
 
       <main id="main-content">
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="availability"><span aria-hidden="true" /> Based in {profile.location}</p>
-            <h1 id="hero-title">Quality engineering,<br />tested with an <em><span>offensive</span> <span>mindset.</span></em></h1>
+            <p className="availability"><span aria-hidden="true" /> {ui.basedIn} {profile.location}</p>
+            <h1 id="hero-title">{ui.heroTitleBefore}<br />{ui.heroTitleBridge}<em>{ui.heroTitleAccent}</em></h1>
             <p className="hero-role">{profile.role}</p>
-            <p className="hero-summary">I build reliable automation systems and perform authorized security testing across web, API, and mobile applications.</p>
+            <p className="hero-summary">{ui.heroSummary}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">View selected work <ArrowIcon /></a>
+              <a className="button button-primary" href="#work">{ui.selectedWorkCta} <ArrowIcon /></a>
               <a className="button button-secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <ExternalIcon /></a>
             </div>
           </div>
-          <aside className="hero-panel" aria-label="Engineering focus">
-            <div className="panel-topline"><span>Engineering focus</span><span>01 / 02</span></div>
-            <div className="focus-item focus-quality"><span className="focus-index">01</span><div><strong>Quality Engineering</strong><span>Architecture · Automation · Evidence</span></div></div>
-            <div className="focus-connector" aria-hidden="true"><span /><i>shared context</i><span /></div>
-            <div className="focus-item focus-security"><span className="focus-index">02</span><div><strong>Offensive Security</strong><span>Discovery · Validation · Reporting</span></div></div>
-            <p className="panel-note">One engineering mindset: understand the system, test its assumptions, and make the result actionable.</p>
+          <aside className="hero-panel" aria-label={ui.focusLabel}>
+            <div className="panel-topline"><span>{ui.focusLabel}</span><span>01 / 02</span></div>
+            <div className="focus-item focus-quality"><span className="focus-index">01</span><div><strong>{ui.qualityFocus}</strong><span>{ui.qualityFocusDetail}</span></div></div>
+            <div className="focus-connector" aria-hidden="true"><span /><i>{ui.sharedContext}</i><span /></div>
+            <div className="focus-item focus-security"><span className="focus-index">02</span><div><strong>{ui.securityFocus}</strong><span>{ui.securityFocusDetail}</span></div></div>
+            <p className="panel-note">{ui.focusNote}</p>
           </aside>
         </section>
 
-        <section className="proof-grid" aria-label="Verified portfolio facts">
+        <section className="proof-grid" aria-label={ui.proofLabel}>
           {proofPoints.map((point) => <div className="proof-item" key={point.label}><strong>{point.value}</strong><span>{point.label}</span></div>)}
         </section>
 
         <section className="section theme-light" id="experience">
-          <SectionHeading index="01" eyebrow="Experience" title="From product testing to quality and security engineering." description="A concise career timeline focused on responsibilities, engineering contribution, and progression." />
+          <SectionHeading index="01" {...ui.sections.experience} />
           <div className="experience-list">
             {experience.map((item, index) => (
               <article className="experience-item" key={`${item.company}-${item.period}`}>
@@ -70,21 +77,21 @@ export default function Home() {
         </section>
 
         <section className="section theme-light" id="work">
-          <SectionHeading index="02" eyebrow="Selected work" title="Evidence before adjectives." description="A focused view of the systems, assessments, and specialized workflows that best represent how I work." />
+          <SectionHeading index="02" {...ui.sections.work} />
           <div className="case-list">
             {caseStudies.map((study) => (
               <article className={`case-card ${study.tone}`} key={study.index}>
                 <div className="case-meta"><span>{study.index}</span><span>{study.eyebrow}</span></div>
                 <div className="case-main"><h3>{study.title}</h3><p>{study.summary}</p></div>
                 <ul className="case-contribution">{study.contribution.map((item) => <li key={item}>{item}</li>)}</ul>
-                <div className="tag-list" aria-label="Technologies">{study.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                <div className="tag-list" aria-label={ui.technologiesLabel}>{study.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
               </article>
             ))}
           </div>
         </section>
 
         <section className="section" id="capabilities">
-          <SectionHeading index="03" eyebrow="Capabilities" title="Two disciplines. One practical standard." description="Automation verifies expected behavior at scale. Penetration testing examines what happens when the system is used in unexpected ways." />
+          <SectionHeading index="03" {...ui.sections.capabilities} />
           <div className="capability-grid">
             {capabilityGroups.map((group) => (
               <article className={`capability-card ${group.tone}`} key={group.title}>
@@ -96,29 +103,29 @@ export default function Home() {
         </section>
 
         <section className="section practice-section theme-light" id="practice">
-          <SectionHeading index="04" eyebrow="Hands-on practice" title="Learning that leaves evidence." description="Structured notes, repeatable labs, custom utilities, and engagement work support an ongoing HTB CPTS preparation path." />
+          <SectionHeading index="04" {...ui.sections.practice} />
           <div className="practice-layout">
             <div className="practice-grid">
               {practiceSignals.map((signal) => <article key={signal.title}><strong>{signal.value}</strong><h3>{signal.title}</h3><p>{signal.detail}</p></article>)}
             </div>
             <aside className="candidate-card">
-              <div className="candidate-status"><span aria-hidden="true" /> In progress</div>
-              <p className="candidate-label">Certification journey</p><h3>HTB CPTS Candidate</h3>
-              <p>Preparing for the Certified Penetration Testing Specialist exam through structured study, hands-on labs, methodology development, and authorized assessment work.</p>
-              <div className="candidate-topics"><span>Recon & enumeration</span><span>Web & API exploitation</span><span>Network fundamentals</span><span>Privilege escalation</span><span>Reporting</span></div>
+              <div className="candidate-status"><span aria-hidden="true" /> {ui.candidateStatus}</div>
+              <p className="candidate-label">{ui.candidateLabel}</p><h3>{ui.candidateTitle}</h3>
+              <p>{ui.candidateDescription}</p>
+              <div className="candidate-topics">{ui.candidateTopics.map((topic) => <span key={topic}>{topic}</span>)}</div>
             </aside>
           </div>
         </section>
 
         <section className="section theme-light credentials-section" id="credentials">
-          <SectionHeading index="05" eyebrow="Credentials & recognition" title="Progress, backed by practice." description="Formal training, an active security certification path, and professional recognition that support the work shown above." />
+          <SectionHeading index="05" {...ui.sections.credentials} />
           <div className="credential-layout">
             <div className="credential-list">
               {credentials.map((credential) => (
                 <article className={`credential-card ${credential.tone}`} key={credential.title}>
                   <div className="credential-meta"><span>{credential.type}</span><strong>{credential.status}</strong></div>
                   <h3>{credential.title}</h3><p className="credential-issuer">{credential.issuer}</p><p>{credential.description}</p>
-                  {credential.href ? <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">View public profile <ExternalIcon /></a> : null}
+                  {credential.href ? <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">{ui.publicProfileCta} <ExternalIcon /></a> : null}
                 </article>
               ))}
             </div>
@@ -130,30 +137,30 @@ export default function Home() {
         </section>
 
         <section className="section" id="projects">
-          <SectionHeading index="06" eyebrow="Open source" title="Public projects, built to be inspected." description="Five focused repositories demonstrate framework design, testability, safety controls, and technical documentation." />
+          <SectionHeading index="06" {...ui.sections.projects} />
           <div className="project-grid">
             {projects.map((project, index) => (
               <article className="project-card" key={project.title}>
                 <div className="project-topline"><span>{String(index + 1).padStart(2, "0")}</span><span>{project.category}</span></div>
                 <h3>{project.title}</h3><p>{project.description}</p>
                 <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                <a href={project.href} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`}>View repository <ExternalIcon /></a>
+                <a href={project.href} target="_blank" rel="noreferrer" aria-label={`${ui.repositoryLabelPrefix} ${project.title} ${ui.repositoryLabelSuffix}`}>{ui.repositoryCta} <ExternalIcon /></a>
               </article>
             ))}
           </div>
         </section>
 
         <section className="section principles-section theme-light">
-          <SectionHeading index="07" eyebrow="Working principles" title="What the work should do." />
+          <SectionHeading index="07" {...ui.sections.principles} />
           <ol className="principles-list">{principles.map((principle, index) => <li key={principle}><span>{String(index + 1).padStart(2, "0")}</span><strong>{principle}</strong></li>)}</ol>
         </section>
 
         <section className="contact-section" id="contact">
-          <p className="section-kicker"><span>08</span><span>Contact</span></p>
-          <h2>Building quality—or testing its limits?</h2>
-          <p>I am always interested in practical engineering conversations around automation architecture, application security, and the space where they meet.</p>
+          <p className="section-kicker"><span>08</span><span>{ui.contactEyebrow}</span></p>
+          <h2>{ui.contactTitle}</h2>
+          <p>{ui.contactDescription}</p>
           <div className="contact-actions">
-            <a className="button button-primary" href={`mailto:${profile.email}`}>Start a conversation <ArrowIcon /></a>
+            <a className="button button-primary" href={`mailto:${profile.email}`}>{ui.conversationCta} <ArrowIcon /></a>
             <div className="contact-links">
               <a className="text-link" href={profile.linkedin} target="_blank" rel="noreferrer">{profile.linkedinLabel} <ExternalIcon /></a>
               <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">{profile.githubLabel} <ExternalIcon /></a>
@@ -163,7 +170,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>QA Automation · Penetration Testing</span><a href="#top">Back to top ↑</a></footer>
+      <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>{ui.footerFocus}</span><a href="#top">{ui.backToTop}</a></footer>
     </>
   );
 }

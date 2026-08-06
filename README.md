@@ -4,6 +4,8 @@ A static, recruiter-first engineering portfolio presenting two complementary dis
 
 Production: [vocongthanh.com](https://vocongthanh.com)
 
+The portfolio is published in English at `/` and Vietnamese at `/vi/`, with localized metadata and reciprocal language links.
+
 ## Development
 
 ```bash
