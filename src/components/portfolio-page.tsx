@@ -98,7 +98,10 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
           <div className="practice-grid">
             {practiceSignals.map((signal) => <article key={signal.title}><strong>{signal.value}</strong><h3>{signal.title}</h3><p>{signal.detail}</p></article>)}
           </div>
-          <a className="practice-profile-link" href={profile.tryhackme} target="_blank" rel="noreferrer">{ui.tryHackMeProfileCta} <ExternalIcon /></a>
+          <div className="practice-profile-links" aria-label={ui.practiceProfilesLabel}>
+            <a className="practice-profile-link is-primary" href={profile.htb} target="_blank" rel="noreferrer">{ui.htbProfileCta} <ExternalIcon /></a>
+            <a className="practice-profile-link" href={profile.tryhackme} target="_blank" rel="noreferrer">{ui.tryHackMeProfileCta} <ExternalIcon /></a>
+          </div>
         </section>
 
         <section className="section theme-light credentials-section" id="credentials">

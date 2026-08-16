@@ -145,8 +145,8 @@ html[lang="vi"] .hero h1 { font-size: clamp(44px, 5.8vw, 78px); letter-spacing: 
 .tag-list { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 7px; }
 .tag-list span { padding: 5px 9px; border: 1px solid var(--line); color: var(--quiet); font: 500 10px/1.2 ui-monospace, monospace; }
 
-.practice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.practice-grid article { min-height: 190px; padding: 28px; background: var(--surface-soft); }
+.practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.practice-grid article { min-height: 205px; padding: 30px; background: var(--surface-soft); }
 .practice-grid strong { display: block; color: var(--quality); font: 500 38px/1 ui-monospace, monospace; }
 .practice-grid h3 { margin: 34px 0 5px; font-size: 16px; }
 .practice-grid p { margin: 0; color: var(--muted); font-size: 14px; font-weight: 450; }
@@ -154,8 +154,11 @@ html[lang="vi"] .hero h1 { font-size: clamp(44px, 5.8vw, 78px); letter-spacing: 
 .theme-light .practice-grid article { background: var(--paper-elevated); }
 .theme-light .practice-grid strong { color: var(--paper-quality); }
 .theme-light .practice-grid p { color: var(--ink-muted); }
-.practice-profile-link { width: fit-content; margin: 22px 0 0 auto; display: flex; align-items: center; gap: 10px; color: var(--paper-quality); font-size: 13px; font-weight: 650; }
-.practice-profile-link:hover, .practice-profile-link:focus-visible { color: #085e5a; }
+.practice-profile-links { margin-top: 22px; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.practice-profile-link { display: inline-flex; align-items: center; gap: 10px; padding: 11px 14px; border: 1px solid var(--paper-line); color: var(--paper-quality); background: var(--paper-elevated); font-size: 13px; font-weight: 650; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.practice-profile-link.is-primary { color: #fff; background: var(--paper-quality); border-color: var(--paper-quality); }
+.practice-profile-link:hover, .practice-profile-link:focus-visible { color: #085e5a; border-color: #78a4a1; }
+.practice-profile-link.is-primary:hover, .practice-profile-link.is-primary:focus-visible { color: #fff; background: #085e5a; border-color: #085e5a; }
 .credentials-section { padding-top: 110px; }
 .credential-layout { display: flex; justify-content: center; }
 .credential-list { width: min(100%, 900px); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -244,6 +247,8 @@ footer a:hover, footer a:focus-visible { color: var(--quality); }
   .experience-detail { grid-column: 2; }
   .practice-grid { grid-template-columns: 1fr; }
   .practice-grid article { min-height: 180px; }
+  .practice-profile-links { justify-content: stretch; }
+  .practice-profile-link { flex: 1; justify-content: space-between; }
   .credential-list { grid-template-columns: 1fr; }
   .credential-card { min-height: 290px; }
   .project-grid { grid-template-columns: 1fr; }

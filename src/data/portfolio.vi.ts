@@ -153,6 +153,8 @@ export const ui = {
     credentials: { eyebrow: "Chứng nhận", title: "Tiến bộ được củng cố bằng thực hành.", description: "Đào tạo chính quy và hành trình chứng chỉ bảo mật đang tiếp diễn hỗ trợ cho những công việc được trình bày ở trên." },
     projects: { eyebrow: "Mã nguồn mở", title: "Dự án công khai, sẵn sàng để kiểm chứng.", description: "Năm repository tập trung thể hiện thiết kế framework, khả năng kiểm thử, kiểm soát an toàn và tài liệu kỹ thuật." },
   },
+  practiceProfilesLabel: "Hồ sơ thực hành",
+  htbProfileCta: "Xem hồ sơ Hack The Box",
   tryHackMeProfileCta: "Xem hồ sơ TryHackMe",
   issuedDateLabel: "Ngày cấp",
   publicProfileCta: "Xem hồ sơ công khai",

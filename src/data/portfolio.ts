@@ -153,6 +153,8 @@ export const ui = {
     credentials: { eyebrow: "Credentials", title: "Progress, backed by practice.", description: "Formal training and an active security certification path that support the work shown above." },
     projects: { eyebrow: "Open source", title: "Public projects, built to be inspected.", description: "Five focused repositories demonstrate framework design, testability, safety controls, and technical documentation." },
   },
+  practiceProfilesLabel: "Practice profiles",
+  htbProfileCta: "View Hack The Box profile",
   tryHackMeProfileCta: "View TryHackMe profile",
   issuedDateLabel: "Issued",
   publicProfileCta: "View public profile",
