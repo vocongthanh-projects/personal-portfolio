@@ -17,7 +17,7 @@ export const proofPoints = [
   { value: "05", label: "Public engineering repositories" },
   { value: "131", label: "Verification tests across public projects" },
   { value: "03", label: "Automation surfaces: API, web, and mobile" },
-  { value: "CPTS", label: "Candidate — exam preparation in progress" },
+  { value: "20/28", label: "CPTS core modules documented" },
 ] as const;
 
 export const experience = [
@@ -88,6 +88,8 @@ export const projects = [
 ] as const;
 
 export const practiceSignals = [
+  { value: "20", title: "CPTS modules documented", detail: "Structured HTB Academy notes spanning recon, services, Active Directory, proxies, SQL injection, XSS, and file inclusion" },
+  { value: "12", title: "Reusable pentest playbooks", detail: "Condensed methodology guides for recon, web exploitation, pivoting, password attacks, and supporting techniques" },
   { value: "55", title: "Structured topic notes", detail: "Substantive notes across six TryHackMe learning paths" },
   { value: "28", title: "Learning-lab scripts", detail: "Python artifacts for WebGoat and custom TryHackMe labs" },
   { value: "08", title: "HTB challenge write-ups", detail: "Five web, one reversing, one hardware, and one satellite" },
@@ -110,7 +112,7 @@ export const credentials = [
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "In progress",
-    description: "Preparing for the Certified Penetration Testing Specialist exam through structured study, labs, methodology, and authorized assessment work.",
+    description: "Preparing for the Certified Penetration Testing Specialist exam through 20 documented core modules, reusable methodology guides, labs, and authorized assessment work.",
     issuedDate: null,
     tone: "security",
     href: profile.htb,

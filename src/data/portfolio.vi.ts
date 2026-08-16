@@ -17,7 +17,7 @@ export const proofPoints = [
   { value: "05", label: "Repository kỹ thuật công khai" },
   { value: "131", label: "Bài kiểm chứng trong các dự án công khai" },
   { value: "03", label: "Nền tảng automation: API, web và mobile" },
-  { value: "CPTS", label: "Ứng viên — đang chuẩn bị cho kỳ thi" },
+  { value: "20/28", label: "Module CPTS cốt lõi đã ghi chú" },
 ] as const;
 
 export const experience = [
@@ -88,6 +88,8 @@ export const projects = [
 ] as const;
 
 export const practiceSignals = [
+  { value: "20", title: "Module CPTS đã ghi chú", detail: "Ghi chú HTB Academy có cấu trúc về recon, services, Active Directory, proxy, SQL injection, XSS và file inclusion" },
+  { value: "12", title: "Playbook pentest tái sử dụng", detail: "Hướng dẫn methodology cô đọng cho recon, khai thác web, pivoting, password attack và các kỹ thuật hỗ trợ" },
   { value: "55", title: "Ghi chú chủ đề có cấu trúc", detail: "Nội dung thực chất trên sáu learning path TryHackMe" },
   { value: "28", title: "Script cho learning lab", detail: "Python artifact cho WebGoat và các lab TryHackMe tự xây dựng" },
   { value: "08", title: "Write-up thử thách HTB", detail: "Năm web, một reversing, một hardware và một satellite" },
@@ -110,7 +112,7 @@ export const credentials = [
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "Đang thực hiện",
-    description: "Chuẩn bị cho kỳ thi Certified Penetration Testing Specialist thông qua chương trình học có cấu trúc, lab, phương pháp luận và công việc đánh giá được ủy quyền.",
+    description: "Chuẩn bị cho kỳ thi Certified Penetration Testing Specialist qua 20 module cốt lõi đã ghi chú, methodology có thể tái sử dụng, lab và công việc đánh giá được ủy quyền.",
     issuedDate: null,
     tone: "security",
     href: profile.htb,
