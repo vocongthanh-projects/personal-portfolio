@@ -17,7 +17,7 @@ export const proofPoints = [
   { value: "05", label: "Public engineering repositories" },
   { value: "131", label: "Verification tests across public projects" },
   { value: "03", label: "Automation surfaces: API, web, and mobile" },
-  { value: "20/28", label: "CPTS core modules documented" },
+  { value: "01", label: "CPTS course completed" },
 ] as const;
 
 export const experience = [
@@ -88,7 +88,7 @@ export const projects = [
 ] as const;
 
 export const practiceSignals = [
-  { value: "20", title: "CPTS modules documented", detail: "Structured HTB Academy notes spanning recon, services, Active Directory, proxies, SQL injection, XSS, and file inclusion" },
+  { value: "01", title: "CPTS course completed", detail: "Completed Hack The Box Academy's Certified Penetration Testing Specialist learning path" },
   { value: "12", title: "Reusable pentest playbooks", detail: "Condensed methodology guides for recon, web exploitation, pivoting, password attacks, and supporting techniques" },
   { value: "55", title: "Structured topic notes", detail: "Substantive notes across six TryHackMe learning paths" },
   { value: "28", title: "Learning-lab scripts", detail: "Python artifacts for WebGoat and custom TryHackMe labs" },
@@ -112,7 +112,7 @@ export const credentials = [
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "In progress",
-    description: "Preparing for the Certified Penetration Testing Specialist exam through 20 documented core modules, reusable methodology guides, labs, and authorized assessment work.",
+    description: "Completed the Hack The Box Academy Certified Penetration Testing Specialist course.",
     issuedDate: null,
     tone: "security",
     href: profile.htb,
@@ -149,8 +149,8 @@ export const ui = {
   proofLabel: "Verified portfolio facts",
   sections: {
     experience: { eyebrow: "Experience", title: "From product testing to quality and security engineering.", description: "A concise career timeline focused on responsibilities, engineering contribution, and progression." },
-    practice: { eyebrow: "Hands-on practice", title: "Learning that leaves evidence.", description: "Structured notes, repeatable labs, custom utilities, and engagement work support an ongoing HTB CPTS preparation path." },
-    credentials: { eyebrow: "Credentials", title: "Progress, backed by practice.", description: "Formal training and an active security certification path that support the work shown above." },
+    practice: { eyebrow: "Hands-on practice", title: "Learning that leaves evidence.", description: "Structured notes, repeatable labs, custom utilities, and engagement work support completed HTB CPTS training." },
+    credentials: { eyebrow: "Credentials", title: "Progress, backed by practice.", description: "Formal training and completed security coursework support the work shown above." },
     projects: { eyebrow: "Open source", title: "Public projects, built to be inspected.", description: "Five focused repositories demonstrate framework design, testability, safety controls, and technical documentation." },
   },
   practiceProfilesLabel: "Practice profiles",

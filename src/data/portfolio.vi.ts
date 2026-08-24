@@ -17,7 +17,7 @@ export const proofPoints = [
   { value: "05", label: "Repository kỹ thuật công khai" },
   { value: "131", label: "Bài kiểm chứng trong các dự án công khai" },
   { value: "03", label: "Nền tảng automation: API, web và mobile" },
-  { value: "20/28", label: "Module CPTS cốt lõi đã ghi chú" },
+  { value: "01", label: "Đã hoàn thành khóa học CPTS" },
 ] as const;
 
 export const experience = [
@@ -88,7 +88,7 @@ export const projects = [
 ] as const;
 
 export const practiceSignals = [
-  { value: "20", title: "Module CPTS đã ghi chú", detail: "Ghi chú HTB Academy có cấu trúc về recon, services, Active Directory, proxy, SQL injection, XSS và file inclusion" },
+  { value: "01", title: "Đã hoàn thành khóa học CPTS", detail: "Đã hoàn thành lộ trình Certified Penetration Testing Specialist của Hack The Box Academy" },
   { value: "12", title: "Playbook pentest tái sử dụng", detail: "Hướng dẫn methodology cô đọng cho recon, khai thác web, pivoting, password attack và các kỹ thuật hỗ trợ" },
   { value: "55", title: "Ghi chú chủ đề có cấu trúc", detail: "Nội dung thực chất trên sáu learning path TryHackMe" },
   { value: "28", title: "Script cho learning lab", detail: "Python artifact cho WebGoat và các lab TryHackMe tự xây dựng" },
@@ -112,7 +112,7 @@ export const credentials = [
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "Đang thực hiện",
-    description: "Chuẩn bị cho kỳ thi Certified Penetration Testing Specialist qua 20 module cốt lõi đã ghi chú, methodology có thể tái sử dụng, lab và công việc đánh giá được ủy quyền.",
+    description: "Đã hoàn thành khóa Certified Penetration Testing Specialist của Hack The Box Academy.",
     issuedDate: null,
     tone: "security",
     href: profile.htb,
@@ -149,8 +149,8 @@ export const ui = {
   proofLabel: "Thông tin portfolio đã kiểm chứng",
   sections: {
     experience: { eyebrow: "Kinh nghiệm", title: "Từ kiểm thử sản phẩm đến kỹ thuật chất lượng và bảo mật.", description: "Tiến trình nghề nghiệp cô đọng, tập trung vào trách nhiệm, đóng góp kỹ thuật và sự phát triển chuyên môn." },
-    practice: { eyebrow: "Thực hành", title: "Học tập để lại bằng chứng.", description: "Ghi chú có cấu trúc, lab có thể lặp lại, công cụ tự xây dựng và công việc thực tế hỗ trợ hành trình chuẩn bị HTB CPTS." },
-    credentials: { eyebrow: "Chứng nhận", title: "Tiến bộ được củng cố bằng thực hành.", description: "Đào tạo chính quy và hành trình chứng chỉ bảo mật đang tiếp diễn hỗ trợ cho những công việc được trình bày ở trên." },
+    practice: { eyebrow: "Thực hành", title: "Học tập để lại bằng chứng.", description: "Ghi chú có cấu trúc, lab có thể lặp lại, công cụ tự xây dựng và công việc thực tế củng cố khóa học HTB CPTS đã hoàn thành." },
+    credentials: { eyebrow: "Chứng nhận", title: "Tiến bộ được củng cố bằng thực hành.", description: "Đào tạo chính quy và khóa học bảo mật đã hoàn thành hỗ trợ cho những công việc được trình bày ở trên." },
     projects: { eyebrow: "Mã nguồn mở", title: "Dự án công khai, sẵn sàng để kiểm chứng.", description: "Năm repository tập trung thể hiện thiết kế framework, khả năng kiểm thử, kiểm soát an toàn và tài liệu kỹ thuật." },
   },
   practiceProfilesLabel: "Hồ sơ thực hành",
