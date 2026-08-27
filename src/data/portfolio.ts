@@ -98,7 +98,7 @@ export const practiceSignals = [
 
 export const credentials = [
   {
-    type: "Certificate",
+    category: "Quality Engineering",
     title: "Software Testing",
     issuer: "FPT Software Academy",
     status: "Completed",
@@ -108,7 +108,17 @@ export const credentials = [
     href: null,
   },
   {
-    type: "Certification journey",
+    category: "Security Engineering",
+    title: "LFD121: Developing Secure Software",
+    issuer: "The Linux Foundation",
+    status: "Completed",
+    description: "Completed foundational training in secure software development, covering secure design, vulnerability handling, risk management, and security verification.",
+    issuedDate: null,
+    tone: "security",
+    href: "https://www.credly.com/badges/fbef5844-b44e-44da-8c3d-cd2ae5f6f58f",
+  },
+  {
+    category: "Security Engineering",
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "In progress",
@@ -156,11 +166,12 @@ export const ui = {
   practiceProfilesLabel: "Practice profiles",
   htbProfileCta: "View Hack The Box profile",
   tryHackMeProfileCta: "View TryHackMe profile",
-  issuedDateLabel: "Issued",
-  publicProfileCta: "View public profile",
   repositoryCta: "View repository",
   repositoryLabelPrefix: "View",
   repositoryLabelSuffix: "on GitHub",
+  credentialCta: "View credential",
+  credentialLabelPrefix: "View",
+  credentialLabelSuffix: "credential",
   contactEyebrow: "Contact",
   contactTitle: "Building quality—or testing its limits?",
   contactDescription: "I am always interested in practical engineering conversations around automation architecture, application security, and the space where they meet.",

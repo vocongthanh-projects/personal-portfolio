@@ -98,7 +98,7 @@ export const practiceSignals = [
 
 export const credentials = [
   {
-    type: "Chứng nhận",
+    category: "Quality Engineering",
     title: "Software Testing",
     issuer: "FPT Software Academy",
     status: "Đã hoàn thành",
@@ -108,7 +108,17 @@ export const credentials = [
     href: null,
   },
   {
-    type: "Hành trình chứng chỉ",
+    category: "Security Engineering",
+    title: "LFD121: Phát triển phần mềm an toàn",
+    issuer: "The Linux Foundation",
+    status: "Đã hoàn thành",
+    description: "Đã hoàn thành khóa đào tạo nền tảng về phát triển phần mềm an toàn, bao gồm thiết kế an toàn, xử lý lỗ hổng, quản trị rủi ro và kiểm chứng bảo mật.",
+    issuedDate: null,
+    tone: "security",
+    href: "https://www.credly.com/badges/fbef5844-b44e-44da-8c3d-cd2ae5f6f58f",
+  },
+  {
+    category: "Security Engineering",
     title: "HTB CPTS",
     issuer: "Hack The Box Academy",
     status: "Đang thực hiện",
@@ -156,11 +166,12 @@ export const ui = {
   practiceProfilesLabel: "Hồ sơ thực hành",
   htbProfileCta: "Xem hồ sơ Hack The Box",
   tryHackMeProfileCta: "Xem hồ sơ TryHackMe",
-  issuedDateLabel: "Ngày cấp",
-  publicProfileCta: "Xem hồ sơ công khai",
   repositoryCta: "Xem repository",
   repositoryLabelPrefix: "Xem",
   repositoryLabelSuffix: "trên GitHub",
+  credentialCta: "Xem chứng chỉ",
+  credentialLabelPrefix: "Xem",
+  credentialLabelSuffix: "chứng chỉ",
   contactEyebrow: "Liên hệ",
   contactTitle: "Xây dựng chất lượng — hay kiểm tra giới hạn của nó?",
   contactDescription: "Tôi luôn quan tâm đến những trao đổi kỹ thuật thực tế về kiến trúc automation, bảo mật ứng dụng và điểm giao nhau giữa hai lĩnh vực này.",

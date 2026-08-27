@@ -106,17 +106,25 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
 
         <section className="section theme-light credentials-section" id="credentials">
           <SectionHeading index="04" {...ui.sections.credentials} />
-          <div className="credential-layout">
-            <div className="credential-list">
-              {credentials.map((credential) => (
+          <div className="credential-grid">
+            {credentials.map((credential, index) => {
+              const issuedYear = credential.issuedDate?.match(/\d{4}/)?.[0] ?? null;
+              return (
                 <article className={`credential-card ${credential.tone}`} key={credential.title}>
-                  <div className="credential-meta"><span>{credential.type}</span><strong>{credential.status}</strong></div>
-                  <h3>{credential.title}</h3><p className="credential-issuer">{credential.issuer}</p><p className="credential-description">{credential.description}</p>
-                  {credential.issuedDate ? <p className="credential-issued"><span>{ui.issuedDateLabel}</span>{credential.issuedDate}</p> : null}
-                  {credential.href ? <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">{ui.publicProfileCta} <ExternalIcon /></a> : null}
+                  <div className="credential-topline"><span>{String(index + 1).padStart(2, "0")}</span><span>{credential.category}</span></div>
+                  <h3>{credential.title}</h3>
+                  <p>{credential.description}</p>
+                  <div className="tag-list">
+                    <span>{credential.issuer}</span>
+                    <span>{credential.status}</span>
+                    {issuedYear ? <span>{issuedYear}</span> : null}
+                  </div>
+                  {credential.href ? (
+                    <a href={credential.href} target="_blank" rel="noreferrer" aria-label={`${ui.credentialLabelPrefix} ${credential.title} ${ui.credentialLabelSuffix}`}>{ui.credentialCta} <ExternalIcon /></a>
+                  ) : null}
                 </article>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </section>
 
