@@ -161,18 +161,23 @@ html[lang="vi"] .hero h1 { font-size: clamp(44px, 5.8vw, 78px); letter-spacing: 
 .practice-profile-link.is-primary:hover, .practice-profile-link.is-primary:focus-visible { color: #fff; background: #085e5a; border-color: #085e5a; }
 .credentials-section { padding-top: 110px; }
 
-.project-grid, .credential-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.project-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.credential-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .project-card, .credential-card { min-height: 320px; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--line); background: var(--surface-soft); transition: transform .2s ease, border-color .2s ease; }
 .project-card.quality, .credential-card.quality { border-top: 2px solid var(--quality); }
 .project-card.security, .credential-card.security { border-top: 2px solid var(--security); }
 .project-card.security .project-topline span:last-child, .project-card.security > a,
 .credential-card.security .credential-topline span:last-child, .credential-card.security > a { color: var(--security); }
 .project-card:hover, .credential-card:hover { transform: translateY(-3px); border-color: #46535f; }
-.project-card:nth-child(-n+3), .credential-card:nth-child(-n+3) { grid-column: span 2; }
-.project-card:nth-child(n+4), .credential-card:nth-child(n+4) { grid-column: span 3; }
+.project-card:nth-child(-n+3) { grid-column: span 2; }
+.project-card:nth-child(n+4) { grid-column: span 3; }
 .project-card h3, .credential-card h3 { margin-top: 38px; }
-.project-card .tag-list, .credential-card .tag-list { grid-column: auto; margin-top: auto; padding-top: 24px; }
+.project-card .tag-list, .credential-card .tag-list { grid-column: auto; margin-top: auto; padding-top: 24px; align-items: center; }
 .project-card > a, .credential-card > a { margin-top: 22px; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line-soft); color: var(--quality); font-size: 13px; }
+.credential-badge { display: flex; justify-content: center; margin-bottom: 12px; }
+.credential-badge img { width: 92px; height: auto; display: block; }
+.credential-card h3 { margin-top: 16px; font-size: 20px; }
+.credential-card > p { font-size: 14px; }
 
 .contact-section { margin-top: 96px; padding: clamp(48px, 8vw, 96px); border: 1px solid var(--line); background: linear-gradient(135deg, rgba(87,216,206,.08), rgba(213,166,255,.045) 62%, transparent); }
 .contact-section h2 { max-width: 880px; margin-top: 44px; font-size: clamp(42px, 6vw, 72px); }
@@ -200,8 +205,8 @@ footer a:hover, footer a:focus-visible { color: var(--quality); }
   .proof-item:nth-child(2) { border-right: 0; }
   .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .practice-grid { grid-template-columns: 1fr 1fr; }
-  .project-card:nth-child(-n+3), .project-card:nth-child(n+4),
-  .credential-card:nth-child(-n+3), .credential-card:nth-child(n+4) { grid-column: span 3; }
+  .project-card:nth-child(-n+3), .project-card:nth-child(n+4) { grid-column: span 3; }
+  .credential-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .experience-item { grid-template-columns: 48px 1fr; }
   .experience-detail { grid-column: 2; }
 }
@@ -236,8 +241,7 @@ footer a:hover, footer a:focus-visible { color: var(--quality); }
   .practice-profile-links { justify-content: stretch; }
   .practice-profile-link { flex: 1; justify-content: space-between; }
   .project-grid, .credential-grid { grid-template-columns: 1fr; }
-  .project-card:nth-child(-n+3), .project-card:nth-child(n+4),
-  .credential-card:nth-child(-n+3), .credential-card:nth-child(n+4) { grid-column: 1; }
+  .project-card:nth-child(-n+3), .project-card:nth-child(n+4) { grid-column: 1; }
   .contact-section { margin-top: 56px; padding: 38px 26px; }
   .contact-section h2 { margin-top: 34px; font-size: 42px; }
   .contact-actions .button { width: 100%; }

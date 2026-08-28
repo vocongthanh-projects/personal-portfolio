@@ -111,6 +111,9 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
               const issuedYear = credential.issuedDate?.match(/\d{4}/)?.[0] ?? null;
               return (
                 <article className={`credential-card ${credential.tone}`} key={credential.title}>
+                  {credential.logo ? (
+                    <div className="credential-badge"><img src={`/logos/${credential.logo}.png`} alt={`${credential.title} badge`} loading="lazy" /></div>
+                  ) : null}
                   <div className="credential-topline"><span>{String(index + 1).padStart(2, "0")}</span><span>{credential.category}</span></div>
                   <h3>{credential.title}</h3>
                   <p>{credential.description}</p>
