@@ -169,8 +169,7 @@ html[lang="vi"] .hero h1 { font-size: clamp(44px, 5.8vw, 78px); letter-spacing: 
 .project-card.security .project-topline span:last-child, .project-card.security > a,
 .credential-card.security .credential-topline span:last-child, .credential-card.security > a { color: var(--security); }
 .project-card:hover, .credential-card:hover { transform: translateY(-3px); border-color: #46535f; }
-.project-card:nth-child(-n+3) { grid-column: span 2; }
-.project-card:nth-child(n+4) { grid-column: span 3; }
+.project-card { grid-column: span 3; }
 .project-card h3, .credential-card h3 { margin-top: 38px; }
 .project-card .tag-list, .credential-card .tag-list { grid-column: auto; margin-top: auto; padding-top: 24px; align-items: center; }
 .project-card > a, .credential-card > a { margin-top: 22px; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line-soft); color: var(--quality); font-size: 13px; }

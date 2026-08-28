@@ -70,14 +70,6 @@ export const projects = [
     href: "https://github.com/vocongthanh247/appium-framework",
   },
   {
-    title: "Burp Safe Agent",
-    category: "Security Engineering",
-    description: "A human-in-the-loop Burp Community assistant with dual-layer scope gates, mutation approval, secret redaction, audit logging, and mandatory manual verification.",
-    tags: ["Python", "Burp Suite", "MCP"],
-    tone: "security",
-    href: "https://github.com/vocongthanh247/burp-safe-agent",
-  },
-  {
     title: "VulnRadar",
     category: "Security Engineering",
     description: "A local-first CLI that deduplicates NVD and CISA KEV records, applies explainable KEV/CVSS/EPSS scoring, and produces searchable SQLite digests.",

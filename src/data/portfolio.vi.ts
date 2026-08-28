@@ -70,14 +70,6 @@ export const projects = [
     href: "https://github.com/vocongthanh247/appium-framework",
   },
   {
-    title: "Burp Safe Agent",
-    category: "Security Engineering",
-    description: "Trợ lý human-in-the-loop cho Burp Community với kiểm soát phạm vi hai lớp, phê duyệt mutation, che secrets, audit log và bắt buộc xác minh thủ công.",
-    tags: ["Python", "Burp Suite", "MCP"],
-    tone: "security",
-    href: "https://github.com/vocongthanh247/burp-safe-agent",
-  },
-  {
     title: "VulnRadar",
     category: "Security Engineering",
     description: "CLI local-first hợp nhất bản ghi NVD/CISA KEV, chấm điểm KEV/CVSS/EPSS có thể giải thích và tạo digest có thể tìm kiếm trên SQLite.",
