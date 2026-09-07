@@ -113,17 +113,6 @@ export const credentials = [
   },
   {
     category: "Security Engineering",
-    title: "HTB CPTS",
-    issuer: "Hack The Box Academy",
-    status: "In progress",
-    description: "Completed the Hack The Box Academy Certified Penetration Testing Specialist course.",
-    issuedDate: null,
-    tone: "security",
-    href: profile.htb,
-    logo: "CPTS",
-  },
-  {
-    category: "Security Engineering",
     title: "SKF100: Understanding the OWASP® Top 10 Security Threats",
     issuer: "The Linux Foundation",
     status: "Completed",
