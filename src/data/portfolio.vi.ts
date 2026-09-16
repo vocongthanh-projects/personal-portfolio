@@ -17,7 +17,20 @@ export const proofPoints = [
   { value: "05", label: "Repository kỹ thuật công khai" },
   { value: "131", label: "Bài kiểm chứng trong các dự án công khai" },
   { value: "03", label: "Nền tảng automation: API, web và mobile" },
-  { value: "01", label: "Đã hoàn thành khóa học CPTS" },
+  { value: "02", label: "Path HTB Academy đã hoàn thành" },
+] as const;
+
+export const skills = [
+  { name: "Java", category: "Ngôn ngữ", group: "language" },
+  { name: "TypeScript", category: "Ngôn ngữ", group: "language" },
+  { name: "Python", category: "Ngôn ngữ", group: "language" },
+  { name: "Playwright", category: "Automation Web", group: "tooling" },
+  { name: "Appium", category: "Automation Mobile", group: "tooling" },
+  { name: "REST Assured", category: "Kiểm thử API", group: "tooling" },
+  { name: "JMeter", category: "Kiểm thử hiệu năng", group: "tooling" },
+  { name: "TestNG", category: "Test Framework", group: "tooling" },
+  { name: "Cucumber", category: "BDD", group: "tooling" },
+  { name: "CI/CD", category: "Triển khai", group: "tooling" },
 ] as const;
 
 export const experience = [
@@ -31,6 +44,8 @@ export const experience = [
       "Cải thiện việc thực thi CI bằng phân phối song song, báo cáo tổng hợp và bằng chứng lỗi có thể hành động.",
       "Thực hiện đánh giá bảo mật web, API và mobile trong phạm vi được ủy quyền, kèm phát hiện có thể tái hiện và kiểm chứng khắc phục.",
       "Tự động hóa các quy trình kiểm tra chuyên biệt cho dữ liệu không gian, GPS, tuyến đường, hiển thị bản đồ và dữ liệu khối lượng lớn.",
+      "Kiểm thử một chatbot nội bộ cung cấp thông tin nghị định, quy định pháp lý, đảm bảo độ chính xác và độ tin cậy khi phản hồi.",
+      "Đảm bảo chất lượng và automation cho các nền tảng quy mô lớn thuộc khu vực công và hệ thống quản lý nhân sự doanh nghiệp.",
     ],
     tags: ["Automation Architecture", "Enterprise QA", "Application Security", "CI/CD"],
     current: true,
@@ -51,15 +66,15 @@ export const projects = [
     description: "Nền tảng automation REST API tái sử dụng với cấu hình an toàn, request specification, vòng đời authentication, validation và reporting.",
     tags: ["Java", "REST Assured", "TestNG"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/api-framework",
+    href: "https://github.com/vocongthanh-projects/api-framework",
   },
   {
     title: "Playwright Framework",
     category: "Quality Engineering",
     description: "Framework browser automation trung lập về nghiệp vụ với logical locator, component scope, context độc lập và bằng chứng khi thất bại.",
-    tags: ["Java", "Playwright", "Cucumber"],
+    tags: ["Java", "Playwright", "Cucumber", "TypeScript"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/playwright-framework",
+    href: "https://github.com/vocongthanh-projects/playwright-framework",
   },
   {
     title: "Appium Framework",
@@ -67,20 +82,12 @@ export const projects = [
     description: "Kiến trúc kiểm thử mobile đa nền tảng với adapter Android/iOS, selector động, cấu hình thiết bị và kiểm soát vòng đời.",
     tags: ["Java", "Appium", "Android / iOS"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/appium-framework",
-  },
-  {
-    title: "VulnRadar",
-    category: "Security Engineering",
-    description: "CLI local-first hợp nhất bản ghi NVD/CISA KEV, chấm điểm KEV/CVSS/EPSS có thể giải thích và tạo digest có thể tìm kiếm trên SQLite.",
-    tags: ["Python", "SQLite", "CISA KEV"],
-    tone: "security",
-    href: "https://github.com/vocongthanh247/vulnradar",
+    href: "https://github.com/vocongthanh-projects/appium-framework",
   },
 ] as const;
 
 export const practiceSignals = [
-  { value: "01", title: "Đã hoàn thành khóa học CPTS", detail: "Đã hoàn thành lộ trình Certified Penetration Testing Specialist của Hack The Box Academy" },
+  { value: "02", title: "Đã hoàn thành 2 path HTB Academy", detail: "Đã hoàn thành lộ trình Certified Penetration Testing Specialist và Web Penetration Tester của Hack The Box Academy" },
   { value: "12", title: "Playbook pentest tái sử dụng", detail: "Hướng dẫn methodology cô đọng cho recon, khai thác web, pivoting, password attack và các kỹ thuật hỗ trợ" },
   { value: "55", title: "Ghi chú chủ đề có cấu trúc", detail: "Nội dung thực chất trên sáu learning path TryHackMe" },
   { value: "28", title: "Script cho learning lab", detail: "Python artifact cho WebGoat và các lab TryHackMe tự xây dựng" },
@@ -98,7 +105,7 @@ export const credentials = [
     issuedDate: "15/01/2024",
     tone: "quality",
     href: null,
-    logo: null,
+    logo: "FSA",
   },
   {
     category: "Security Engineering",
@@ -174,11 +181,15 @@ export const ui = {
   securityFocusDetail: "Khám phá · Kiểm chứng · Báo cáo",
   focusNote: "Trên web, API, Android và iOS, tôi xây dựng kiểm tra có thể lặp lại, đánh giá phân quyền và business logic, rồi báo cáo bằng chứng có thể tái hiện.",
   proofLabel: "Thông tin portfolio đã kiểm chứng",
+  techStackLabel: "Công nghệ sử dụng",
+  techGroupLanguage: "Ngôn ngữ",
+  techGroupTooling: "Framework & Công cụ",
+  metricsCommand: "$ metrics --summary",
   sections: {
     experience: { eyebrow: "Kinh nghiệm", title: "Từ kiểm thử sản phẩm đến kỹ thuật chất lượng và bảo mật.", description: "Tiến trình nghề nghiệp cô đọng, tập trung vào trách nhiệm, đóng góp kỹ thuật và sự phát triển chuyên môn." },
-    practice: { eyebrow: "Thực hành", title: "Học tập để lại bằng chứng.", description: "Ghi chú có cấu trúc, lab có thể lặp lại, công cụ tự xây dựng và công việc thực tế củng cố khóa học HTB CPTS đã hoàn thành." },
+    practice: { eyebrow: "Thực hành", title: "Học tập để lại bằng chứng.", description: "Ghi chú có cấu trúc, lab có thể lặp lại, công cụ tự xây dựng và công việc thực tế củng cố quá trình đào tạo tại Hack The Box Academy." },
     credentials: { eyebrow: "Chứng nhận", title: "Tiến bộ được củng cố bằng thực hành.", description: "Đào tạo chính quy và khóa học bảo mật đã hoàn thành hỗ trợ cho những công việc được trình bày ở trên." },
-    projects: { eyebrow: "Mã nguồn mở", title: "Dự án công khai, sẵn sàng để kiểm chứng.", description: "Năm repository tập trung thể hiện thiết kế framework, khả năng kiểm thử, kiểm soát an toàn và tài liệu kỹ thuật." },
+    projects: { eyebrow: "Mã nguồn mở", title: "Dự án công khai, sẵn sàng để kiểm chứng.", description: "Ba repository tập trung thể hiện thiết kế framework, khả năng kiểm thử, kiểm soát an toàn và tài liệu kỹ thuật." },
   },
   practiceProfilesLabel: "Hồ sơ thực hành",
   htbProfileCta: "Xem hồ sơ Hack The Box",

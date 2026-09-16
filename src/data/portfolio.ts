@@ -17,7 +17,20 @@ export const proofPoints = [
   { value: "05", label: "Public engineering repositories" },
   { value: "131", label: "Verification tests across public projects" },
   { value: "03", label: "Automation surfaces: API, web, and mobile" },
-  { value: "01", label: "CPTS course completed" },
+  { value: "02", label: "HTB Academy paths completed" },
+] as const;
+
+export const skills = [
+  { name: "Java", category: "Language", group: "language" },
+  { name: "TypeScript", category: "Language", group: "language" },
+  { name: "Python", category: "Language", group: "language" },
+  { name: "Playwright", category: "Web Automation", group: "tooling" },
+  { name: "Appium", category: "Mobile Automation", group: "tooling" },
+  { name: "REST Assured", category: "API Testing", group: "tooling" },
+  { name: "JMeter", category: "Performance Testing", group: "tooling" },
+  { name: "TestNG", category: "Test Framework", group: "tooling" },
+  { name: "Cucumber", category: "BDD", group: "tooling" },
+  { name: "CI/CD", category: "Delivery", group: "tooling" },
 ] as const;
 
 export const experience = [
@@ -31,6 +44,8 @@ export const experience = [
       "Improved CI execution through parallel distribution, aggregated reporting, and actionable failure evidence.",
       "Performed authorized web, API, and mobile security assessments with reproducible findings and remediation verification.",
       "Automated specialized geospatial, GPS, route, map-rendering, and high-volume data validation workflows.",
+      "Testing an internal chatbot that delivers regulatory and legal (decree) information for accuracy and response reliability.",
+      "Delivered QA and automation coverage across large-scale public-sector platforms and enterprise HR management systems.",
     ],
     tags: ["Automation Architecture", "Enterprise QA", "Application Security", "CI/CD"],
     current: true,
@@ -51,15 +66,15 @@ export const projects = [
     description: "A reusable REST API automation foundation with secure configuration, request specifications, authentication lifecycle, validation, and reporting.",
     tags: ["Java", "REST Assured", "TestNG"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/api-framework",
+    href: "https://github.com/vocongthanh-projects/api-framework",
   },
   {
     title: "Playwright Framework",
     category: "Quality Engineering",
     description: "A domain-neutral browser automation framework with logical locators, component scope, isolated contexts, and failure evidence.",
-    tags: ["Java", "Playwright", "Cucumber"],
+    tags: ["Java", "Playwright", "Cucumber", "TypeScript"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/playwright-framework",
+    href: "https://github.com/vocongthanh-projects/playwright-framework",
   },
   {
     title: "Appium Framework",
@@ -67,20 +82,12 @@ export const projects = [
     description: "A cross-platform mobile test architecture with Android and iOS adapters, dynamic selectors, device configuration, and lifecycle control.",
     tags: ["Java", "Appium", "Android / iOS"],
     tone: "quality",
-    href: "https://github.com/vocongthanh247/appium-framework",
-  },
-  {
-    title: "VulnRadar",
-    category: "Security Engineering",
-    description: "A local-first CLI that deduplicates NVD and CISA KEV records, applies explainable KEV/CVSS/EPSS scoring, and produces searchable SQLite digests.",
-    tags: ["Python", "SQLite", "CISA KEV"],
-    tone: "security",
-    href: "https://github.com/vocongthanh247/vulnradar",
+    href: "https://github.com/vocongthanh-projects/appium-framework",
   },
 ] as const;
 
 export const practiceSignals = [
-  { value: "01", title: "CPTS course completed", detail: "Completed Hack The Box Academy's Certified Penetration Testing Specialist learning path" },
+  { value: "02", title: "HTB Academy paths completed", detail: "Completed Hack The Box Academy's Certified Penetration Testing Specialist and Web Penetration Tester learning paths" },
   { value: "12", title: "Reusable pentest playbooks", detail: "Condensed methodology guides for recon, web exploitation, pivoting, password attacks, and supporting techniques" },
   { value: "55", title: "Structured topic notes", detail: "Substantive notes across six TryHackMe learning paths" },
   { value: "28", title: "Learning-lab scripts", detail: "Python artifacts for WebGoat and custom TryHackMe labs" },
@@ -98,7 +105,7 @@ export const credentials = [
     issuedDate: "15 January 2024",
     tone: "quality",
     href: null,
-    logo: null,
+    logo: "FSA",
   },
   {
     category: "Security Engineering",
@@ -174,11 +181,15 @@ export const ui = {
   securityFocusDetail: "Discovery · Validation · Reporting",
   focusNote: "Across web, API, Android, and iOS, I build repeatable checks, probe authorization and business logic, and report reproducible evidence.",
   proofLabel: "Verified portfolio facts",
+  techStackLabel: "Tech stack",
+  techGroupLanguage: "Languages",
+  techGroupTooling: "Frameworks & Tools",
+  metricsCommand: "$ metrics --summary",
   sections: {
     experience: { eyebrow: "Experience", title: "From product testing to quality and security engineering.", description: "A concise career timeline focused on responsibilities, engineering contribution, and progression." },
-    practice: { eyebrow: "Hands-on practice", title: "Learning that leaves evidence.", description: "Structured notes, repeatable labs, custom utilities, and engagement work support completed HTB CPTS training." },
+    practice: { eyebrow: "Hands-on practice", title: "Learning that leaves evidence.", description: "Structured notes, repeatable labs, custom utilities, and engagement work support completed HTB Academy training." },
     credentials: { eyebrow: "Credentials", title: "Progress, backed by practice.", description: "Formal training and completed security coursework support the work shown above." },
-    projects: { eyebrow: "Open source", title: "Public projects, built to be inspected.", description: "Five focused repositories demonstrate framework design, testability, safety controls, and technical documentation." },
+    projects: { eyebrow: "Open source", title: "Public projects, built to be inspected.", description: "Three focused repositories demonstrate framework design, testability, safety controls, and technical documentation." },
   },
   practiceProfilesLabel: "Practice profiles",
   htbProfileCta: "View Hack The Box profile",

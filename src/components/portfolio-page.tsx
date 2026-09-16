@@ -10,7 +10,7 @@ type PortfolioPageProps = {
 
 export function PortfolioPage({ locale }: PortfolioPageProps) {
   const content = locale === "vi" ? vietnamese : english;
-  const { credentials, experience, practiceSignals, profile, projects, proofPoints, ui } = content;
+  const { credentials, experience, practiceSignals, profile, projects, proofPoints, skills, ui } = content;
   const pageUrl = locale === "vi" ? "https://vocongthanh.com/vi/" : "https://vocongthanh.com/";
   const structuredData = {
     "@context": "https://schema.org",
@@ -59,6 +59,28 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
           </aside>
         </section>
 
+        <section className="bento-intro" aria-label={ui.techStackLabel}>
+          <div className="skills-panel">
+            <div className="panel-topline"><span>{ui.techStackLabel}</span><span>$ ls stack/</span></div>
+            <div className="skills-groups">
+              {(["language", "tooling"] as const).map((group) => (
+                <div className="skills-group" key={group}>
+                  <p className="skills-group-label">{group === "language" ? ui.techGroupLanguage : ui.techGroupTooling}</p>
+                  <div className="skills-grid">
+                    {skills.filter((skill) => skill.group === group).map((skill) => (
+                      <span className="skill-chip" key={skill.name}>
+                        <strong>{skill.name}</strong>
+                        <i>{skill.category}</i>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <p className="dashboard-kicker" aria-hidden="true">{ui.metricsCommand}</p>
         <section className="proof-grid" aria-label={ui.proofLabel}>
           {proofPoints.map((point) => <div className="proof-item" key={point.label}><strong>{point.value}</strong><span>{point.label}</span></div>)}
         </section>
@@ -82,14 +104,28 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
         <section className="section" id="projects">
           <SectionHeading index="02" {...ui.sections.projects} />
           <div className="project-grid">
-            {projects.map((project, index) => (
-              <article className={`project-card ${project.tone}`} key={project.title}>
-                <div className="project-topline"><span>{String(index + 1).padStart(2, "0")}</span><span>{project.category}</span></div>
-                <h3>{project.title}</h3><p>{project.description}</p>
-                <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                <a href={project.href} target="_blank" rel="noreferrer" aria-label={`${ui.repositoryLabelPrefix} ${project.title} ${ui.repositoryLabelSuffix}`}>{ui.repositoryCta} <ExternalIcon /></a>
-              </article>
-            ))}
+            {projects.map((project) => {
+              const slug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+              return (
+                <article className={`project-card terminal-card ${project.tone}`} key={project.title}>
+                  <div className="terminal-chrome">
+                    <span className="terminal-dot terminal-dot-red" aria-hidden="true" />
+                    <span className="terminal-dot terminal-dot-yellow" aria-hidden="true" />
+                    <span className="terminal-dot terminal-dot-green" aria-hidden="true" />
+                    <span className="terminal-filename">{slug}.sh</span>
+                  </div>
+                  <div className="terminal-body">
+                    <p className="terminal-line"><span className="prompt">$</span> ./run-tests.sh {slug}</p>
+                    <p className="terminal-line terminal-comment"># {project.category}</p>
+                    <h3>{project.title}</h3>
+                    <p className="terminal-description">{project.description}</p>
+                    <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                    <p className="terminal-line terminal-cursor-line" aria-hidden="true"><span className="prompt">$</span><span className="terminal-cursor" /></p>
+                    <a href={project.href} target="_blank" rel="noreferrer" aria-label={`${ui.repositoryLabelPrefix} ${project.title} ${ui.repositoryLabelSuffix}`}>{ui.repositoryCta} <ExternalIcon /></a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -124,7 +160,12 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
                   </div>
                   {credential.href ? (
                     <a href={credential.href} target="_blank" rel="noreferrer" aria-label={`${ui.credentialLabelPrefix} ${credential.title} ${ui.credentialLabelSuffix}`}>{ui.credentialCta} <ExternalIcon /></a>
-                  ) : null}
+                  ) : (
+                    <div className="credential-anchor-meta">
+                      <span>{credential.status}</span>
+                      {credential.issuedDate ? <span>{credential.issuedDate}</span> : null}
+                    </div>
+                  )}
                 </article>
               );
             })}
