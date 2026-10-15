@@ -14,8 +14,7 @@ export const profile = {
 } as const;
 
 export const proofPoints = [
-  { value: "05", label: "Repository kỹ thuật công khai" },
-  { value: "131", label: "Bài kiểm chứng trong các dự án công khai" },
+  { value: "03", label: "Repository công khai tiêu biểu" },
   { value: "03", label: "Nền tảng automation: API, web và mobile" },
   { value: "02", label: "Path HTB Academy đã hoàn thành" },
 ] as const;
@@ -24,8 +23,13 @@ export const skills = [
   { name: "Java", category: "Ngôn ngữ", group: "language" },
   { name: "TypeScript", category: "Ngôn ngữ", group: "language" },
   { name: "Python", category: "Ngôn ngữ", group: "language" },
+  { name: "Bash", category: "Ngôn ngữ kịch bản", group: "language" },
+  { name: "SQL", category: "Ngôn ngữ truy vấn", group: "language" },
+  { name: "NoSQL", category: "Cơ sở dữ liệu", group: "language" },
   { name: "Playwright", category: "Automation Web", group: "tooling" },
+  { name: "Selenium", category: "Automation Web", group: "tooling" },
   { name: "Appium", category: "Automation Mobile", group: "tooling" },
+  { name: "Postman", category: "Kiểm thử API", group: "tooling" },
   { name: "REST Assured", category: "Kiểm thử API", group: "tooling" },
   { name: "JMeter", category: "Kiểm thử hiệu năng", group: "tooling" },
   { name: "TestNG", category: "Test Framework", group: "tooling" },
@@ -109,6 +113,17 @@ export const credentials = [
   },
   {
     category: "Security Engineering",
+    title: "Hack The Box Certified Penetration Testing Specialist (HTB CPTS)",
+    issuer: "Hack The Box",
+    status: "Đã hoàn thành",
+    description: "Chứng chỉ kiểm thử xâm nhập cấp độ trung cấp, xác nhận kỹ năng thực hành trong việc phát hiện, khai thác, kết hợp và báo cáo lỗ hổng bảo mật.",
+    issuedDate: null,
+    tone: "security",
+    href: "https://www.credly.com/badges/ab3ed30b-e8eb-4a3f-bd54-6ce8083d8b72",
+    logo: "CPTS",
+  },
+  {
+    category: "Security Engineering",
     title: "LFD121: Phát triển phần mềm an toàn",
     issuer: "The Linux Foundation",
     status: "Đã hoàn thành",
@@ -182,7 +197,7 @@ export const ui = {
   focusNote: "Trên web, API, Android và iOS, tôi xây dựng kiểm tra có thể lặp lại, đánh giá phân quyền và business logic, rồi báo cáo bằng chứng có thể tái hiện.",
   proofLabel: "Thông tin portfolio đã kiểm chứng",
   techStackLabel: "Công nghệ sử dụng",
-  techGroupLanguage: "Ngôn ngữ",
+  techGroupLanguage: "Ngôn ngữ & Script",
   techGroupTooling: "Framework & Công cụ",
   metricsCommand: "$ metrics --summary",
   sections: {

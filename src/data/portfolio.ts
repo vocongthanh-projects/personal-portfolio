@@ -14,8 +14,7 @@ export const profile = {
 } as const;
 
 export const proofPoints = [
-  { value: "05", label: "Public engineering repositories" },
-  { value: "131", label: "Verification tests across public projects" },
+  { value: "03", label: "Featured public repositories" },
   { value: "03", label: "Automation surfaces: API, web, and mobile" },
   { value: "02", label: "HTB Academy paths completed" },
 ] as const;
@@ -24,8 +23,13 @@ export const skills = [
   { name: "Java", category: "Language", group: "language" },
   { name: "TypeScript", category: "Language", group: "language" },
   { name: "Python", category: "Language", group: "language" },
+  { name: "Bash", category: "Scripting Language", group: "language" },
+  { name: "SQL", category: "Query Language", group: "language" },
+  { name: "NoSQL", category: "Database", group: "language" },
   { name: "Playwright", category: "Web Automation", group: "tooling" },
+  { name: "Selenium", category: "Web Automation", group: "tooling" },
   { name: "Appium", category: "Mobile Automation", group: "tooling" },
+  { name: "Postman", category: "API Testing", group: "tooling" },
   { name: "REST Assured", category: "API Testing", group: "tooling" },
   { name: "JMeter", category: "Performance Testing", group: "tooling" },
   { name: "TestNG", category: "Test Framework", group: "tooling" },
@@ -109,6 +113,17 @@ export const credentials = [
   },
   {
     category: "Security Engineering",
+    title: "Hack The Box Certified Penetration Testing Specialist (HTB CPTS)",
+    issuer: "Hack The Box",
+    status: "Completed",
+    description: "Intermediate penetration testing certification demonstrating hands-on skills in identifying, exploiting, chaining, and reporting security vulnerabilities.",
+    issuedDate: null,
+    tone: "security",
+    href: "https://www.credly.com/badges/ab3ed30b-e8eb-4a3f-bd54-6ce8083d8b72",
+    logo: "CPTS",
+  },
+  {
+    category: "Security Engineering",
     title: "LFD121: Developing Secure Software",
     issuer: "The Linux Foundation",
     status: "Completed",
@@ -182,7 +197,7 @@ export const ui = {
   focusNote: "Across web, API, Android, and iOS, I build repeatable checks, probe authorization and business logic, and report reproducible evidence.",
   proofLabel: "Verified portfolio facts",
   techStackLabel: "Tech stack",
-  techGroupLanguage: "Languages",
+  techGroupLanguage: "Languages & Scripting",
   techGroupTooling: "Frameworks & Tools",
   metricsCommand: "$ metrics --summary",
   sections: {
