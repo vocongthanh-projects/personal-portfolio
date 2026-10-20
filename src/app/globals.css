@@ -213,7 +213,8 @@ html[lang="vi"] .hero h1 { font-size: clamp(44px, 5.8vw, 78px); letter-spacing: 
 .credential-card > a, .credential-anchor-meta { margin-top: 14px; padding-top: 12px; }
 .credential-anchor-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line-soft); color: var(--quiet); font: 500 11px/1.4 ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
 .credential-badge { display: flex; justify-content: center; margin-bottom: 6px; }
-.credential-badge img { width: 60px; height: auto; display: block; }
+.credential-badge img { width: auto; height: 60px; max-width: 100%; display: block; object-fit: contain; }
+.credential-badge img[src$="/FSA.png"], .credential-badge img[src$="/CPTS.png"] { height: 68px; }
 .credential-card h3 { margin-top: 10px; font-size: 17px; }
 .credential-card > p { margin-top: 8px; font-size: 13px; }
 

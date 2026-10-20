@@ -20,7 +20,7 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
     email: `mailto:${profile.email}`,
     url: pageUrl,
     sameAs: [profile.linkedin, profile.github, profile.htb, profile.tryhackme],
-    knowsAbout: ["QA automation", "Automation framework architecture", "API testing", "Web and mobile automation", "Authorized penetration testing", "Web and API security"],
+    knowsAbout: ["Quality engineering", "Automation framework architecture", "API testing", "Playwright Java and TypeScript", "Appium Android and iOS", "API security", "Authorization testing", "Web application security", "Network and infrastructure penetration testing", "Active Directory security assessment", "Linux and Windows privilege escalation", "Pivoting and lateral movement", "Authorized application security assessment", "Security findings and remediation retesting", "CI/CD test delivery", "Geospatial quality automation"],
   };
 
   return (
@@ -63,9 +63,11 @@ export function PortfolioPage({ locale }: PortfolioPageProps) {
           <div className="skills-panel">
             <div className="panel-topline"><span>{ui.techStackLabel}</span><span>$ ls stack/</span></div>
             <div className="skills-groups">
-              {(["language", "tooling"] as const).map((group) => (
+              {(["language", "quality", "security", "delivery"] as const).map((group) => (
                 <div className="skills-group" key={group}>
-                  <p className="skills-group-label">{group === "language" ? ui.techGroupLanguage : ui.techGroupTooling}</p>
+                  <p className="skills-group-label">
+                    {group === "language" ? ui.techGroupLanguage : group === "quality" ? ui.techGroupQuality : group === "security" ? ui.techGroupSecurity : ui.techGroupDelivery}
+                  </p>
                   <div className="skills-grid">
                     {skills.filter((skill) => skill.group === group).map((skill) => (
                       <span className="skill-chip" key={skill.name}>

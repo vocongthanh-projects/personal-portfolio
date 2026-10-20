@@ -20,7 +20,7 @@ export function createSiteMetadata(locale: "en" | "vi"): Metadata {
     applicationName: locale === "vi" ? "Portfolio Võ Công Thành" : "Vo Cong Thanh Portfolio",
     authors: [{ name: locale === "vi" ? "Võ Công Thành" : "Vo Cong Thanh" }],
     creator: locale === "vi" ? "Võ Công Thành" : "Vo Cong Thanh",
-    keywords: ["QA Automation Engineer", "Penetration Tester", "Playwright", "Appium", "API Testing", "Web Security", "Mobile Security"],
+    keywords: ["Quality Engineer", "QA Automation Engineer", "Application Security", "API Security", "Playwright Java", "Playwright TypeScript", "Appium Android iOS", "API Testing", "RBAC Testing", "Web Security", "Mobile Security", "CI/CD"],
     alternates: {
       canonical,
       languages: { en: "/", vi: "/vi/", "x-default": "/" },
