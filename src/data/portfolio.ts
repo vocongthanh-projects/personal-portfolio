@@ -37,6 +37,8 @@ export const skills = [
   { name: "Allure", category: "Test Reporting", group: "quality" },
   { name: "Burp Suite", category: "Web/API Assessment", group: "security" },
   { name: "OWASP ZAP", category: "Web/API DAST", group: "security" },
+  { name: "Nessus", category: "Vulnerability Assessment", group: "security" },
+  { name: "OpenVAS", category: "Open-source Vulnerability Scanning", group: "security" },
   { name: "GitLab CI/CD", category: "Pipeline Automation", group: "delivery" },
   { name: "GitHub Actions", category: "Workflow Automation", group: "delivery" },
 ] as const;

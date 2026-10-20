@@ -37,6 +37,8 @@ export const skills = [
   { name: "Allure", category: "Báo cáo kiểm thử", group: "quality" },
   { name: "Burp Suite", category: "Đánh giá Web/API", group: "security" },
   { name: "OWASP ZAP", category: "DAST cho Web/API", group: "security" },
+  { name: "Nessus", category: "Đánh giá lỗ hổng", group: "security" },
+  { name: "OpenVAS", category: "Quét lỗ hổng mã nguồn mở", group: "security" },
   { name: "GitLab CI/CD", category: "Tự động hóa pipeline", group: "delivery" },
   { name: "GitHub Actions", category: "Tự động hóa workflow", group: "delivery" },
 ] as const;
