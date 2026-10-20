@@ -44,3 +44,67 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify:
+    if: always()
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_GITHUB_PERSONAL }}
+          TELEGRAM_THREAD_ID: ${{ secrets.TELEGRAM_THREAD_GITHUB_PERSONAL }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT_SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [[ -z "$TELEGRAM_BOT_TOKEN" || -z "$TELEGRAM_CHAT_ID" || -z "$TELEGRAM_THREAD_ID" ]]; then
+            echo "::warning::Telegram secrets are not configured; notification skipped."
+            exit 0
+          fi
+
+          python3 - <<'PY'
+          import json
+          import os
+          from urllib.error import HTTPError, URLError
+          from urllib.request import Request, urlopen
+
+          build = os.environ["BUILD_RESULT"]
+          deploy = os.environ["DEPLOY_RESULT"]
+          success = build == "success" and deploy == "success"
+          state = "✅ Deployment succeeded" if success else "❌ Deployment failed"
+          text = "\n".join([
+              f"{state}",
+              f"Repository: {os.environ['REPOSITORY']}",
+              f"Branch: {os.environ['BRANCH']}",
+              f"Build: {build} · Deploy: {deploy}",
+              f"Commit: {os.environ['COMMIT_SHA'][:7]}",
+              os.environ["RUN_URL"],
+          ])
+          payload = json.dumps({
+              "chat_id": os.environ["TELEGRAM_CHAT_ID"],
+              "message_thread_id": os.environ["TELEGRAM_THREAD_ID"],
+              "text": text,
+              "disable_web_page_preview": True,
+          }).encode()
+          request = Request(
+              f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendMessage",
+              data=payload,
+              headers={"Content-Type": "application/json"},
+              method="POST",
+          )
+          try:
+              with urlopen(request, timeout=20) as response:
+                  result = json.loads(response.read())
+              if not result.get("ok"):
+                  raise RuntimeError("Telegram API rejected the notification")
+          except HTTPError as error:
+              raise SystemExit(f"Telegram notification failed with HTTP {error.code}")
+          except URLError as error:
+              raise SystemExit(f"Telegram notification could not reach the API: {error.reason}")
+          print("Telegram notification sent.")
+          PY
